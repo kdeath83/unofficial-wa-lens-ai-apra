@@ -2,19 +2,19 @@
 /* Warm, sophisticated, minimalist aesthetic */
 
 :root {
-  /* Colors - Warm editorial palette */
-  --bg-primary: #F5F3EE;
+  /* Colors - Warm editorial palette (matching screenshot) */
+  --bg-primary: #F5F2EB;
   --bg-secondary: #FAF8F5;
   --bg-card: #FFFFFF;
   
-  --accent-gold: #C4A35A;
-  --accent-gold-dark: #A88B4A;
-  --accent-gold-light: #D4B76A;
+  --accent-gold: #C9A962;
+  --accent-olive: #8B8B6B;
+  --accent-gold-dark: #B8984F;
   
-  --text-primary: #1A1A1A;
+  --text-primary: #2D2A26;
   --text-secondary: #4A4A4A;
-  --text-tertiary: #7A7A7A;
-  --text-muted: #9A9A9A;
+  --text-tertiary: #6B6B4E;
+  --text-muted: #9A8469;
   
   --border-light: #E8E5E0;
   --border-medium: #D8D5D0;
@@ -78,11 +78,11 @@ body {
 
 .title {
   font-family: var(--font-serif);
-  font-size: 48px;
-  font-weight: 500;
+  font-size: 42px;
+  font-weight: 700;
   line-height: 1.2;
   color: var(--text-primary);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .subtitle {
@@ -665,5 +665,7 @@ button:disabled {
   
   .pillar-bar-container {
     width: 100%;
+  }
+} width: 100%;
   }
 }
