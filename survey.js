@@ -485,6 +485,18 @@ function restartAssessment() {
   document.getElementById('landing').style.display = 'block';
 }
 
+function deployRemediation(command, index) {
+  // Extract component from command
+  const match = command.match(/--component (\w+)/);
+  const component = match ? match[1] : 'all';
+  
+  // Show deployment status
+  alert(`Deploying ${component} remediation component...\n\nIn production, this would deploy the AWS infrastructure automatically.`);
+  
+  // Here you would trigger the actual deployment
+  console.log(`Deploying component: ${component}`);
+}
+
 // Add shake animation for invalid input
 const style = document.createElement('style');
 style.textContent = `

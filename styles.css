@@ -536,13 +536,29 @@ button:disabled {
   margin-bottom: 8px;
 }
 
-.rec-command {
-  font-family: 'Monaco', 'Consolas', monospace;
-  font-size: 12px;
-  color: var(--text-tertiary);
-  background-color: var(--bg-secondary);
-  padding: 8px 12px;
+.btn-deploy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: var(--accent-gold);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
   border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  margin-top: 8px;
+}
+
+.btn-deploy:hover {
+  background-color: var(--accent-gold-dark);
+}
+
+.rec-command {
+  display: none;
 }
 
 /* Cost Section */
