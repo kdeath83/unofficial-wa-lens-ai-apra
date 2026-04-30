@@ -322,4 +322,5 @@ SURVEY_DATA.pillars.forEach(pillar => {
             pillarIcon: pillar.icon
         });
     });
-});
+}); 
+ 
