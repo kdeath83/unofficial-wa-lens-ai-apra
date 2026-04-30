@@ -34,7 +34,7 @@ In the AWS Well-Architected Framework, a "lens" is a specialized set of question
 
 | Pillar | Focus Area | APRA Expectation |
 |--------|-----------|------------------|
-| **Governance** | Board literacy, strategy, risk appetite | Board oversight, strategic direction |
+| **Governance** | Board literacy, strategy, risk appetite | Board oversight, strategic direction | <-- CONTACT YOUR AWS ACCOUNT TEAM FOR BOARD AI BRIEFINGS
 | **Risk Management** | Model validation, monitoring, controls | Effective risk management |
 | **Audit & Compliance** | Logging, retention, CPS 234 alignment | Comprehensive audit trails |
 | **Operational Resilience** | Availability, recovery, human fallback | Operational resilience |
@@ -170,9 +170,7 @@ Suitable for:
 
 Before production use:
 - Conduct independent security review
-- Engage APRA-regulated compliance advisors
 - Test in non-production environment
-- Consider enterprise governance platforms for scale
 
 ## Contributing
 
