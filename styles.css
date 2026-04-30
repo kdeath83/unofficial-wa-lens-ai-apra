@@ -110,6 +110,7 @@ body {
   font-size: 14px;
   color: var(--text-muted);
   margin-top: 20px;
+  text-align: left;
 }
 
 /* Buttons */
