@@ -1,6 +1,5 @@
 // Unofficial WA Lens AI APRA Survey Questions Data
 // 26 questions across 4 pillars based on APRA April 2026 AI Guidance
-// Cache-bust: 2026-04-30-1640
 
 const SURVEY_DATA = {
     pillars: [
@@ -377,7 +376,6 @@ const SURVEY_DATA = {
     ]
 };
 
-// Flatten all questions for navigation
 const ALL_QUESTIONS = [];
 SURVEY_DATA.pillars.forEach(pillar => {
     pillar.questions.forEach(q => {
