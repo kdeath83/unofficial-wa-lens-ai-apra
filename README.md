@@ -1,4 +1,5 @@
-# Unofficial Well-Architected Lens: AI Governance for APRA Regulated Entities
+# 🏛️ Unofficial WA Lens for AI Governance for APRA Regulated Entities
++ 1 Click Remediation Deployment
 
 > ⚠️ **UNOFFICIAL / FOR PROTOTYPING USE ONLY**
 > 
