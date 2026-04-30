@@ -3,127 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WA Lens AI APRA — Self-Assessment</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>AI Governance Framework — Self-Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-v2.css">
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <h1>🏛️ WA Lens AI APRA</h1>
-                <p class="subtitle">Unofficial Well-Architected Lens — AI Governance Self-Assessment</p>
-                <span class="badge">Community-Built</span>
+        <!-- Landing Page -->
+        <section id="landing" class="landing">
+            <header class="site-header">
+                <span class="eyebrow">Risk Management Framework</span>
+                <h1 class="title">AI Governance</h1>
+                <p class="subtitle">APRA AI Governance Self-Assessment</p>
+            </header>
+
+            <div class="hero">
+                <p class="lead">
+                    Evaluate your organization's AI governance maturity against APRA's April 2026 guidance. 
+                    Complete the 26-question assessment and receive prioritized remediation recommendations.
+                </p>
+                
+                <button class="btn-primary" onclick="startAssessment()">
+                    Begin Assessment
+                </button>
+                
+                <p class="meta">Takes approximately 5 minutes · No data collected</p>
             </div>
-        </header>
 
-        <!-- Disclaimer -->
-        <div class="disclaimer">
-            <strong>⚠️ Unofficial / For Prototyping Use Only</strong><br>
-            This is a community-developed assessment tool. NOT an official AWS product. 
-            NOT guaranteed APRA compliance. For proof-of-concept use only.
-        </div>
-
-        <!-- About Section -->
-        <section class="about" id="about-section">
-            <h2>About this Assessment</h2>
-            <p>
-                This structured diagnostic evaluates your organisation's AI governance readiness across 
-                <strong>4 core pillars</strong> presented as an unofficial Well-Architected style lens. 
-                Assessment questions are derived from the <strong>April 2026 APRA Guidance on AI</strong> 
-                (<a href="https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai" target="_blank" rel="noopener">APRA Letter to Industry on Artificial Intelligence</a>), 
-                tailored for <strong>APRA-regulated Australian financial institutions</strong>.
-            </p>
-            <div class="pillars-grid">
+            <div class="pillars-preview">
                 <div class="pillar-card">
-                    <span class="pillar-icon">🏛️</span>
+                    <span class="pillar-number">01</span>
                     <h3>Governance</h3>
-                    <p>Board literacy, strategy, shadow AI controls</p>
+                    <p>Board literacy, strategy documentation, and shadow AI controls</p>
                 </div>
                 <div class="pillar-card">
-                    <span class="pillar-icon">🛡️</span>
+                    <span class="pillar-number">02</span>
                     <h3>Risk Management</h3>
-                    <p>Models, AI code security, agent IAM, bias</p>
+                    <p>Model inventory, validation, monitoring, and security</p>
                 </div>
                 <div class="pillar-card">
-                    <span class="pillar-icon">📋</span>
+                    <span class="pillar-number">03</span>
                     <h3>Audit & Compliance</h3>
-                    <p>Logging, CPS 234, explainability</p>
+                    <p>Logging, CPS 234 alignment, and explainability</p>
                 </div>
                 <div class="pillar-card">
-                    <span class="pillar-icon">🔧</span>
+                    <span class="pillar-number">04</span>
                     <h3>Operational Resilience</h3>
-                    <p>Availability, fallback, exit testing</p>
+                    <p>Availability, fallback procedures, and exit testing</p>
                 </div>
             </div>
-            <p class="assessment-meta">
-                <strong>26 questions</strong> • <strong>6 minutes</strong> • Generates maturity score + recommendations
-            </p>
-            <button class="btn-primary" onclick="startSurvey()">Start Assessment →</button>
-        </section>
 
-        <!-- Survey Section -->
-        <section class="survey" id="survey-section" style="display: none;">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progress-fill"></div>
-            </div>
-            <div class="progress-text">
-                <span id="current-question">1</span> of <span id="total-questions">26</span>
-            </div>
-
-            <div class="question-card" id="question-card">
-                <!-- Question content injected by JS -->
-            </div>
-
-            <div class="navigation">
-                <button class="btn-secondary" id="prev-btn" onclick="prevQuestion()" disabled>← Previous</button>
-                <button class="btn-primary" id="next-btn" onclick="nextQuestion()">Next →</button>
+            <div class="disclaimer-elegant">
+                <p>This is a community-developed assessment tool. Not an official AWS product. Not guaranteed APRA compliance.</p>
             </div>
         </section>
 
-        <!-- Results Section -->
-        <section class="results" id="results-section" style="display: none;">
-            <div class="results-header">
-                <h2>Unofficial WA Lens AI APRA — Assessment Results</h2>
-                <div class="score-circle" id="score-circle">
-                    <span class="score-value" id="score-value">0</span>
-                    <span class="score-label">/ 100</span>
+        <!-- Assessment -->
+        <section id="assessment" class="assessment" style="display: none;">
+            <header class="assessment-header">
+                <span class="back-link" onclick="showLanding()">← Back to overview</span>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span class="progress-text">Question <span id="current-q">1</span> of 26</span>
                 </div>
-                <p class="maturity-level" id="maturity-level">Calculating...</p>
+            </header>
+
+            <div class="question-container" id="question-container">
+                <!-- Questions injected by JS -->
+            </div>
+
+            <div class="question-nav">
+                <button class="btn-secondary" id="prev-btn" onclick="prevQuestion()" disabled>Previous</button>
+                <button class="btn-primary" id="next-btn" onclick="nextQuestion()">Next</button>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section id="results" class="results" style="display: none;">
+            <header class="results-header">
+                <span class="eyebrow">Assessment Complete</span>
+                <h1 class="title">Your Results</h1>
+            </header>
+
+            <div class="score-section">
+                <div class="score-display">
+                    <span class="score-value" id="overall-score">0</span>
+                    <span class="score-label">Overall Maturity</span>
+                </div>
+                <div class="maturity-badge" id="maturity-badge">Initial</div>
             </div>
 
             <div class="pillars-results" id="pillars-results">
                 <!-- Pillar scores injected by JS -->
             </div>
 
-            <div class="recommendations" id="recommendations">
-                <h3>🔧 Recommended Remediation</h3>
+            <div class="recommendations-section">
+                <h2>Prioritized Remediation</h2>
                 <div class="rec-list" id="rec-list">
                     <!-- Recommendations injected by JS -->
                 </div>
             </div>
 
-            <div class="cost-estimate">
-                <h3>💰 Estimated Monthly Cost</h3>
-                <div class="cost-card">
+            <div class="cost-section">
+                <h3>Estimated Investment</h3>
+                <div class="cost-display">
                     <span class="cost-amount" id="cost-amount">$0</span>
-                    <span class="cost-vs">vs $5,000+ enterprise solutions</span>
+                    <span class="cost-period">per month</span>
                 </div>
+                <p class="cost-note">Compared to $5,000+/month enterprise governance platforms</p>
             </div>
 
             <div class="actions">
-                <button class="btn-primary" onclick="downloadReport()">📄 Download HTML Report</button>
-                <button class="btn-secondary" onclick="restartSurvey()">↺ Start Over</button>
+                <button class="btn-primary" onclick="downloadReport()">Download Report</button>
+                <button class="btn-secondary" onclick="restartAssessment()">Start Over</button>
             </div>
 
-            <div class="json-output">
-                <h4>Raw Assessment Data (JSON)</h4>
-                <pre id="json-output"></pre>
+            <div class="export-section">
+                <h4>One-Click Deployment</h4>
+                <p>After reviewing your results, deploy recommended AWS infrastructure:</p>
+                <code class="code-block">./remediation/deploy-fixes.sh --all</code>
             </div>
         </section>
     </div>
 
     <script src="questions-data.js"></script>
-    <script src="survey.js"></script>
+    <script src="survey-v2.js"></script>
 </body>
 </html>
