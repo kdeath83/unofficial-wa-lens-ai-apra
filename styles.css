@@ -222,6 +222,9 @@ button:disabled {
 .disclaimer-elegant p {
   font-size: 13px;
   color: var(--text-muted);
+}
+
+.disclaimer-elegant p.italic {
   font-style: italic;
 }
 
@@ -652,6 +655,12 @@ button:disabled {
   .pillar-result {
     flex-direction: column;
     align-items: flex-start;
+  }
+  
+  .pillar-bar-container {
+    width: 100%;
+  }
+}art;
   }
   
   .pillar-bar-container {
