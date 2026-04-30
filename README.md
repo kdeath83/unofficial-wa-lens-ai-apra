@@ -189,7 +189,7 @@ MIT License - For APRA-regulated Australian financial institutions and global FS
 ## Support
 
 - **Issues:** GitHub Issues tab
-- **APRA Reference:** [https://www.apra.gov.au/ai-letter](https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai)
+- **APRA Reference:** https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai
 - **Well-Architected Framework:** https://aws.amazon.com/architecture/well-architected/
 
 ---
