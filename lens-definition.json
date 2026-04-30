@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "2023-06-22",
+  "name": "Unofficial WA Lens AI APRA",
+  "description": "Community-built Well-Architected Lens for AI governance in APRA-regulated Australian financial institutions. For prototyping use only.",
+  "pillars": [
+    {
+      "id": "governance",
+      "name": "Governance",
+      "description": "Board oversight, AI strategy, and risk appetite alignment"
+    },
+    {
+      "id": "risk",
+      "name": "Risk Management", 
+      "description": "Model validation, monitoring, and security controls"
+    },
+    {
+      "id": "audit",
+      "name": "Audit & Compliance",
+      "description": "Logging, retention, and CPS 234 alignment"
+    },
+    {
+      "id": "resilience",
+      "name": "Operational Resilience",
+      "description": "Availability, recovery, and human-in-the-loop controls"
+    }
+  ],
+  "priorities": [
+    "Cost optimization for prototyping",
+    "APRA alignment for FSI",
+    "Community-driven improvements"
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "author": "Community",
+    "license": "MIT",
+    "apraReference": "April 2026 Letter to Industry on AI",
+    "unofficial": true,
+    "prototypingOnly": true
+  }
+}

@@ -1,0 +1,75 @@
+pillar: governance
+name: Board AI Literacy & Strategy
+description: APRA expects boards and senior management to maintain sufficient understanding of AI to provide oversight
+
+questions:
+  - id: gov-01
+    text: Does your Board have sufficient AI literacy to provide effective oversight?
+    rationale: APRA requires boards to understand AI capabilities, limitations, and risks to set strategic direction
+    best_practices:
+      - Regular AI briefings for Board (quarterly minimum)
+      - Technical director or AI advisor on Board
+      - Board education program on AI trends
+    remediation: governance-board-education
+
+  - id: gov-02
+    text: Is your AI strategy formally documented and Board-approved?
+    rationale: Undocumented strategy leads to misalignment between management actions and Board expectations
+    best_practices:
+      - Written AI strategy document
+      - Board resolution approving strategy
+      - Clear risk appetite statements
+    remediation: governance-strategy-document
+
+  - id: gov-03
+    text: Do you have AI-specific risk appetite statements?
+    rationale: Generic risk appetite doesn't address AI-specific risks (model drift, hallucination, adversarial attacks)
+    best_practices:
+      - Quantified limits (e.g., max model drift %)
+      - Prohibited AI use cases listed
+      - Approval thresholds defined
+    remediation: governance-risk-appetite
+
+  - id: gov-04
+    text: Is there a designated executive accountable for AI governance?
+    rationale: Diffused accountability leads to gaps in oversight
+    best_practices:
+      - C-level owner (CRO, CTO, or CAIO)
+      - Clear RACI for AI decisions
+      - Regular reporting to Board
+    remediation: governance-accountability
+
+  - id: gov-05
+    text: Do you have a process for Board approval of high-risk AI use cases?
+    rationale: APRA expects constructive challenge function for material AI deployments
+    best_practices:
+      - Risk-based approval matrix
+      - Board sub-committee for AI
+      - Mandatory cooling-off period
+    remediation: governance-approval-workflow
+
+remediation_components:
+  governance-board-education:
+    description: Board AI literacy materials and briefing templates
+    deployment: remediation/deploy-governance.sh --component education
+    cost: $0
+
+  governance-strategy-document:
+    description: AI strategy template with APRA alignment
+    deployment: remediation/deploy-governance.sh --component strategy
+    cost: $0
+
+  governance-risk-appetite:
+    description: Risk appetite framework with AI-specific controls
+    deployment: remediation/deploy-governance.sh --component appetite
+    cost: $0
+
+  governance-accountability:
+    description: RACI matrix and reporting templates
+    deployment: remediation/deploy-governance.sh --component accountability
+    cost: $0
+
+  governance-approval-workflow:
+    description: GitHub Issues-based approval workflow
+    deployment: remediation/deploy-governance.sh --component workflow
+    cost: $0

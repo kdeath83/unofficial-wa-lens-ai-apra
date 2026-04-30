@@ -1,0 +1,75 @@
+pillar: audit
+name: Audit & Compliance
+description: Comprehensive audit trails, CPS 234 alignment, and APRA reporting
+
+questions:
+  - id: audit-01
+    text: Do you log AI inference inputs and outputs for audit purposes?
+    rationale: APRA requires ability to explain and reconstruct AI decisions
+    best_practices:
+      - Immutable inference logs
+      - Input/output hashing for verification
+      - Structured, queryable format
+    remediation: audit-inference-logging
+
+  - id: audit-02
+    text: Is audit data retained for 7 years as required by APRA?
+    rationale: CPS 234 and APRA prudential standards require long-term retention
+    best_practices:
+      - Automated lifecycle management
+      - S3 Glacier for cost optimization
+      - Immutable storage (Object Lock)
+    remediation: audit-lifecycle-management
+
+  - id: audit-03
+    text: Can you demonstrate compliance with CPS 234 for AI systems?
+    rationale: CPS 234 applies to all information assets, including AI models and training data
+    best_practices:
+      - InfoSec classification for AI assets
+      - Regular penetration testing
+      - Incident response procedures
+    remediation: audit-cps234-mapping
+
+  - id: audit-04
+    text: Do you have Board-level reporting on AI risk metrics?
+    rationale: APRA expects regular reporting to enable Board oversight
+    best_practices:
+      - Quarterly AI risk dashboards
+      - Incident and near-miss reporting
+      - Third-party dependency updates
+    remediation: audit-reporting-automation
+
+  - id: audit-05
+    text: Are AI systems included in internal and external audit scopes?
+    rationale: AI governance gaps are often invisible to traditional audit approaches
+    best_practices:
+      - AI-specific audit procedures
+      - External auditor AI competency
+      - Findings tracked to closure
+    remediation: audit-scope-expansion
+
+remediation_components:
+  audit-inference-logging:
+    description: Lambda-based inference logging to S3
+    deployment: remediation/deploy-fixes.sh --component logging
+    cost: ~$5-10/mo
+
+  audit-lifecycle-management:
+    description: S3 lifecycle rules for 7-year retention
+    deployment: remediation/deploy-fixes.sh --component lifecycle
+    cost: ~$0.50/mo
+
+  audit-cps234-mapping:
+    description: CPS 234 control mapping for AI assets
+    deployment: remediation/deploy-fixes.sh --component cps234
+    cost: $0
+
+  audit-reporting-automation:
+    description: Automated Board dashboard generation
+    deployment: remediation/deploy-fixes.sh --component reporting
+    cost: ~$5/mo
+
+  audit-scope-expansion:
+    description: AI audit scope templates and checklists
+    deployment: remediation/deploy-fixes.sh --component scope
+    cost: $0

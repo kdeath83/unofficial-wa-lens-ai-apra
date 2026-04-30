@@ -1,0 +1,75 @@
+pillar: risk
+name: AI Risk Management
+description: Model validation, monitoring, and security controls for AI systems
+
+questions:
+  - id: risk-01
+    text: Do you maintain an inventory of all AI models in production?
+    rationale: Unknown AI systems cannot be governed or risk-managed
+    best_practices:
+      - Central model registry
+      - Owner and risk rating per model
+      - Regular inventory reconciliation
+    remediation: risk-model-inventory
+
+  - id: risk-02
+    text: What independent validation occurs before AI model deployment?
+    rationale: APRA warns against over-reliance on vendor presentations without independent scrutiny
+    best_practices:
+      - Internal red team assessment
+      - Bias and fairness testing
+      - Security penetration testing
+    remediation: risk-validation-automation
+
+  - id: risk-03
+    text: Do you monitor models for drift, bias, or performance degradation post-deployment?
+    rationale: Models drift over time; continuous monitoring required for ongoing risk management
+    best_practices:
+      - Automated drift detection
+      - Performance dashboards
+      - Alert thresholds defined
+    remediation: risk-monitoring-infrastructure
+
+  - id: risk-04
+    text: Are security controls in place for AI systems (prompt injection, model extraction, data poisoning)?
+    rationale: AI systems face novel attack vectors traditional security doesn't address
+    best_practices:
+      - Input/output guardrails
+      - Rate limiting
+      - Adversarial testing
+    remediation: risk-security-controls
+
+  - id: risk-05
+    text: Do you have human-in-the-loop requirements for high-risk AI decisions?
+    rationale: Fully automated high-risk decisions create unacceptable concentration of risk
+    best_practices:
+      - Defined escalation triggers
+      - Human override capability
+      - Decision audit trails
+    remediation: risk-human-oversight
+
+remediation_components:
+  risk-model-inventory:
+    description: Model registry with metadata and risk ratings
+    deployment: remediation/deploy-fixes.sh --component inventory
+    cost: $0
+
+  risk-validation-automation:
+    description: CI/CD security scanning with Garak, Semgrep
+    deployment: remediation/deploy-fixes.sh --component validation
+    cost: $0
+
+  risk-monitoring-infrastructure:
+    description: CloudWatch dashboards, drift detection Lambda
+    deployment: remediation/deploy-fixes.sh --component monitoring
+    cost: ~$10-20/mo
+
+  risk-security-controls:
+    description: WAF rules, Bedrock Guardrails, input validation
+    deployment: remediation/deploy-fixes.sh --component security
+    cost: ~$5-10/mo
+
+  risk-human-oversight:
+    description: Approval workflows, escalation triggers
+    deployment: remediation/deploy-fixes.sh --component oversight
+    cost: $0

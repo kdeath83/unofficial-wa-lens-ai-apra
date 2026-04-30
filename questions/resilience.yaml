@@ -1,0 +1,75 @@
+pillar: resilience
+name: Operational Resilience
+description: Availability, recovery, and human fallback for AI systems
+
+questions:
+  - id: res-01
+    text: Do you have defined recovery time objectives (RTO) for critical AI systems?
+    rationale: CPS 230 requires operational resilience with clear recovery targets
+    best_practices:
+      - RTO/RPO defined per AI service
+      - Documented recovery runbooks
+      - Regular recovery testing
+    remediation: resilience-rto-definition
+
+  - id: res-02
+    text: Can you operate critical business functions without AI if systems fail?
+    rationale: Over-reliance on AI creates unacceptable concentration risk
+    best_practices:
+      - Human fallback procedures
+      - Non-AI backup processes
+      - Graceful degradation design
+    remediation: resilience-human-fallback
+
+  - id: res-03
+    text: Do you have circuit breakers or kill switches for malfunctioning AI models?
+    rationale: Rapid response to model drift or adversarial attacks limits damage
+    best_practices:
+      - Automated circuit breakers
+      - Manual kill switch capability
+      - Staged rollbacks
+    remediation: resilience-circuit-breakers
+
+  - id: res-04
+    text: Are AI systems included in business continuity and disaster recovery plans?
+    rationale: AI systems often omitted from traditional BCP/DR planning
+    best_practices:
+      - AI-specific BCP procedures
+      - Cross-region failover
+      - Regular DR testing
+    remediation: resilience-bcp-integration
+
+  - id: res-05
+    text: Do you have third-party AI dependency monitoring?
+    rationale: Cloud AI services create supply chain risks requiring active monitoring
+    best_practices:
+      - Vendor SLA monitoring
+      - Alternative provider planning
+      - Exit strategy documentation
+    remediation: resilience-vendor-monitoring
+
+remediation_components:
+  resilience-rto-definition:
+    description: RTO/RPO templates for AI services
+    deployment: remediation/deploy-fixes.sh --component rto
+    cost: $0
+
+  resilience-human-fallback:
+    description: Fallback procedure templates and training materials
+    deployment: remediation/deploy-fixes.sh --component fallback
+    cost: $0
+
+  resilience-circuit-breakers:
+    description: CloudWatch alarms + Lambda circuit breakers
+    deployment: remediation/deploy-fixes.sh --component circuit
+    cost: ~$5/mo
+
+  resilience-bcp-integration:
+    description: AI-specific BCP/DR plan templates
+    deployment: remediation/deploy-fixes.sh --component bcp
+    cost: $0
+
+  resilience-vendor-monitoring:
+    description: Vendor health checks and SLA monitoring
+    deployment: remediation/deploy-fixes.sh --component vendor
+    cost: ~$5/mo
