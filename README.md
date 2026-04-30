@@ -10,6 +10,21 @@
 
 This lens provides a structured assessment framework for AI governance in APRA-regulated Australian financial institutions. Assessment questions are derived from the **[April 2026 APRA Guidance on AI](https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai)**, presented as an unofficial Well-Architected style lens for community use.
 
+**What makes this different:**
+- ✅ **Self-assessment** → 26 questions, 5 minutes
+- ✅ **Instant remediation** → One command deploys all AWS infrastructure
+- ✅ **Cost-effective** → $15-40/month vs $5,000+/month enterprise solutions
+- ✅ **Production-ready code** → Not templates, actual deployable components
+
+**The 26 remediation components deploy:**
+- Model monitoring dashboards
+- AI inference logging with 7-year retention
+- Automated bias detection pipelines
+- Human-in-the-loop approval workflows
+- Circuit breakers for AI failures
+- And 20+ more controls
+
+All deploy with a single command. No consultants required.
 
 ## What is a Well-Architected Lens?
 
@@ -24,30 +39,71 @@ In the AWS Well-Architected Framework, a "lens" is a specialized set of question
 | **Audit & Compliance** | Logging, retention, CPS 234 alignment | Comprehensive audit trails |
 | **Operational Resilience** | Availability, recovery, human fallback | Operational resilience |
 
-## Quick Start
+## The Workflow: Assess → Deploy in Minutes
 
-### 1. Import the Lens (Conceptual)
+### 1. Complete the Self-Assessment
 
-This lens is provided as reference architecture. To use:
-- Review the questions in `questions/`
-- Assess your maturity against each pillar
-- Deploy remediation components from `remediation/`
+**Option A: Web Survey (Recommended)**
+Open `index.html` in your browser or visit the GitHub Pages site. Answer 26 questions across 4 pillars. Get instant maturity scoring.
 
-### 2. Run Assessment
-
+**Option B: CLI Review**
 ```bash
-# Review questions
+# Review all questions
 cat questions/governance.yaml
-
-# Deploy remediation for identified gaps
-./remediation/deploy-fixes.sh --pillar governance --pillar audit
+cat questions/risk.yaml
+# ... etc
 ```
 
-### 3. Generate Report
+### 2. Get Your Remediation Plan
+
+The assessment generates a tailored plan showing:
+- Maturity score per pillar (0-100)
+- Prioritized remediation list
+- Estimated monthly cost ($15-40)
+- One-click deployment commands
+
+### 3. One-Click Deploy to AWS
+
+**Deploy everything recommended:**
+```bash
+./remediation/deploy-fixes.sh --all
+```
+
+**Or deploy specific components:**
+```bash
+# Governance controls
+./remediation/deploy-fixes.sh --component education --component strategy
+
+# Risk management
+./remediation/deploy-fixes.sh --component monitoring --component security
+
+# Audit & compliance
+./remediation/deploy-fixes.sh --component logging --component lifecycle
+
+# Operational resilience
+./remediation/deploy-fixes.sh --component circuit --component fallback
+```
+
+**What gets deployed:**
+- CloudFormation/Terraform templates
+- Lambda functions for monitoring
+- S3 buckets for logging (7-year retention)
+- IAM policies and guardrails
+- SNS topics for alerts
+- All AWS-native, no external dependencies
+
+### 4. Generate Compliance Report
 
 ```bash
 python generate-assessment-report.py --output apra-ai-assessment.html
 ```
+
+Exports a professional report with:
+- Executive summary with maturity scores
+- Pillar-by-pillar breakdown
+- Remediation status
+- Cost analysis
+- Evidence artifacts
 
 ## Cost Breakdown
 
