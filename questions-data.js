@@ -170,7 +170,7 @@ const SURVEY_DATA = {
                 },
                 {
                     id: 'audit-02',
-                    text: 'Is audit data retained for 7 years as required by APRA?',
+                    text: 'Is AI decision data retained to support incident investigation and regulatory inquiry?',
                     rationale: 'CPS 234 requires long-term retention',
                     options: [
                         { value: 0, label: 'Standard retention (30-90 days)' },
@@ -322,5 +322,6 @@ SURVEY_DATA.pillars.forEach(pillar => {
             pillarIcon: pillar.icon
         });
     });
-}); 
+});
+ 
  
