@@ -1,4 +1,4 @@
-# Unofficial Well-Architected Lens: AI Governance for APRA
+# Unofficial Well-Architected Lens: AI Governance for APRA Regulated Entities
 
 > ⚠️ **UNOFFICIAL / FOR PROTOTYPING USE ONLY**
 > 
