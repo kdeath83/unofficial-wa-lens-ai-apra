@@ -1,6 +1,7 @@
 pillar: risk
 name: AI Risk Management
-description: Model validation, monitoring, and security controls for AI systems
+description: Based on APRA April 2026 Guidance on AI — Model validation, monitoring, and security controls for AI systems
+apra_reference: "https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai"
 
 questions:
   - id: risk-01
@@ -55,6 +56,39 @@ remediation_components:
     cost: $0
 
   risk-validation-automation:
+    description: CI/CD security scanning with Garak, Semgrep
+    deployment: remediation/deploy-fixes.sh --component validation
+    cost: $0
+
+  risk-monitoring-infrastructure:
+    description: CloudWatch dashboards, drift detection Lambda
+    deployment: remediation/deploy-fixes.sh --component monitoring
+    cost: ~$10-20/mo
+
+  risk-security-controls:
+    description: WAF rules, Bedrock Guardrails, input validation
+    deployment: remediation/deploy-fixes.sh --component security
+    cost: ~$5-10/mo
+
+  risk-human-oversight:
+    description: Approval workflows, escalation triggers
+    deployment: remediation/deploy-fixes.sh --component oversight
+    cost: $0
+
+  risk-ai-code-security:
+    description: Security scanning for AI-generated code
+    deployment: remediation/deploy-fixes.sh --component aicode
+    cost: $0
+
+  risk-agent-iam:
+    description: Identity and access management for AI agents
+    deployment: remediation/deploy-fixes.sh --component agentiam
+    cost: $0
+
+  risk-bias-testing:
+    description: Bias and fairness testing framework
+    deployment: remediation/deploy-fixes.sh --component bias
+    cost: $0on-automation:
     description: CI/CD security scanning with Garak, Semgrep
     deployment: remediation/deploy-fixes.sh --component validation
     cost: $0

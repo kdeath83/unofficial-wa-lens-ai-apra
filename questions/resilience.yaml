@@ -1,6 +1,7 @@
 pillar: resilience
 name: Operational Resilience
-description: Availability, recovery, and human fallback for AI systems
+description: Based on APRA April 2026 Guidance on AI — Availability, recovery, and human fallback for AI systems
+apra_reference: "https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai"
 
 questions:
   - id: res-01
@@ -47,6 +48,15 @@ questions:
       - Alternative provider planning
       - Exit strategy documentation
     remediation: resilience-vendor-monitoring
+
+  - id: res-06
+    text: Have you tested exit and substitution strategies for critical AI providers?
+    rationale: APRA observed few entities had demonstrated robust contingency planning for AI provider exit
+    best_practices:
+      - Annual exit simulation exercises
+      - Tested data portability procedures
+      - Documented substitution criteria
+    remediation: resilience-exit-testing
 
 remediation_components:
   resilience-rto-definition:

@@ -1,6 +1,7 @@
 pillar: audit
 name: Audit & Compliance
-description: Comprehensive audit trails, CPS 234 alignment, and APRA reporting
+description: Based on APRA April 2026 Guidance on AI — Comprehensive audit trails, CPS 234 alignment, and APRA reporting
+apra_reference: "https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai"
 
 questions:
   - id: audit-01
@@ -47,6 +48,15 @@ questions:
       - External auditor AI competency
       - Findings tracked to closure
     remediation: audit-scope-expansion
+
+  - id: audit-06
+    text: Can you explain AI model decisions to regulators and customers?
+    rationale: APRA requires consideration of model purpose, limitations, and explainability
+    best_practices:
+      - Model cards documenting decision logic
+      - SHAP/LIME explanations for predictions
+      - Customer-facing explanation summaries
+    remediation: audit-explainability
 
 remediation_components:
   audit-inference-logging:

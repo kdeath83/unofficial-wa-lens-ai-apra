@@ -1,6 +1,7 @@
 pillar: governance
 name: Board AI Literacy & Strategy
-description: APRA expects boards and senior management to maintain sufficient understanding of AI to provide oversight
+description: Based on APRA April 2026 Guidance on AI — APRA expects boards and senior management to maintain sufficient understanding of AI to provide oversight
+apra_reference: "https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai"
 
 questions:
   - id: gov-01
@@ -67,6 +68,17 @@ remediation_components:
   governance-accountability:
     description: RACI matrix and reporting templates
     deployment: remediation/deploy-governance.sh --component accountability
+    cost: $0
+
+  governance-approval-workflow:
+    description: GitHub Issues-based approval workflow
+    deployment: remediation/deploy-governance.sh --component workflow
+    cost: $0
+
+  governance-shadow-ai-controls:
+    description: DLP and technical controls for unauthorized AI usage
+    deployment: remediation/deploy-governance.sh --component shadowcontrols
+    cost: $0remediation/deploy-governance.sh --component accountability
     cost: $0
 
   governance-approval-workflow:

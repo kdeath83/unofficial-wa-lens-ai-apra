@@ -1,5 +1,6 @@
 // Unofficial WA Lens AI APRA Survey Questions Data
 // ⚠️ UNOFFICIAL / FOR PROTOTYPING USE ONLY
+// 26 questions covering 4 pillars based on APRA April 2026 AI Guidance
 const SURVEY_DATA = {
     pillars: [
         {
@@ -218,6 +219,19 @@ const SURVEY_DATA = {
                         { value: 100, label: 'External audit includes AI competency' }
                     ],
                     remediation: 'Deploy audit scope: ./deploy-fixes.sh --component scope'
+                },
+                {
+                    id: 'audit-06',
+                    text: 'Can you explain AI model decisions to regulators and customers?',
+                    rationale: 'APRA requires consideration of model purpose, limitations, explainability',
+                    options: [
+                        { value: 0, label: 'No explainability practices' },
+                        { value: 25, label: 'Technical documentation only' },
+                        { value: 50, label: 'Model cards for high-risk decisions' },
+                        { value: 75, label: 'SHAP/LIME explanations available' },
+                        { value: 100, label: 'Customer-facing explanations plus regulator docs' }
+                    ],
+                    remediation: 'Deploy explainability: ./deploy-fixes.sh --component explain'
                 }
             ]
         },

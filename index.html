@@ -29,33 +29,35 @@
             <h2>About this Assessment</h2>
             <p>
                 This structured diagnostic evaluates your organisation's AI governance readiness across 
-                <strong>4 core pillars</strong> based on the AWS Well-Architected Framework, tailored for 
-                <strong>APRA-regulated Australian financial institutions</strong>.
+                <strong>4 core pillars</strong> presented as an unofficial Well-Architected style lens. 
+                Assessment questions are derived from the <strong>April 2026 APRA Guidance on AI</strong> 
+                (<a href="https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai" target="_blank" rel="noopener">APRA Letter to Industry on Artificial Intelligence</a>), 
+                tailored for <strong>APRA-regulated Australian financial institutions</strong>.
             </p>
             <div class="pillars-grid">
                 <div class="pillar-card">
                     <span class="pillar-icon">🏛️</span>
                     <h3>Governance</h3>
-                    <p>Board literacy, strategy, risk appetite</p>
+                    <p>Board literacy, strategy, shadow AI controls</p>
                 </div>
                 <div class="pillar-card">
                     <span class="pillar-icon">🛡️</span>
                     <h3>Risk Management</h3>
-                    <p>Model validation, monitoring, security</p>
+                    <p>Models, AI code security, agent IAM, bias</p>
                 </div>
                 <div class="pillar-card">
                     <span class="pillar-icon">📋</span>
                     <h3>Audit & Compliance</h3>
-                    <p>Logging, retention, CPS 234</p>
+                    <p>Logging, CPS 234, explainability</p>
                 </div>
                 <div class="pillar-card">
                     <span class="pillar-icon">🔧</span>
                     <h3>Operational Resilience</h3>
-                    <p>Availability, recovery, fallback</p>
+                    <p>Availability, fallback, exit testing</p>
                 </div>
             </div>
             <p class="assessment-meta">
-                <strong>20 questions</strong> • <strong>5 minutes</strong> • Generates maturity score + recommendations
+                <strong>26 questions</strong> • <strong>6 minutes</strong> • Generates maturity score + recommendations
             </p>
             <button class="btn-primary" onclick="startSurvey()">Start Assessment →</button>
         </section>
@@ -66,7 +68,7 @@
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
             <div class="progress-text">
-                <span id="current-question">1</span> of <span id="total-questions">20</span>
+                <span id="current-question">1</span> of <span id="total-questions">26</span>
             </div>
 
             <div class="question-card" id="question-card">

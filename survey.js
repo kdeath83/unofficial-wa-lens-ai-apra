@@ -2,7 +2,7 @@
 // ⚠️ UNOFFICIAL / FOR PROTOTYPING USE ONLY
 let currentQuestion = 0;
 const answers = {};
-const totalQuestions = ALL_QUESTIONS.length;
+const totalQuestions = ALL_QUESTIONS.length; // 26 questions across 4 pillars
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {

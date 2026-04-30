@@ -8,7 +8,7 @@
 
 ## Overview
 
-This lens provides a structured assessment framework for AI governance in APRA-regulated Australian financial institutions, based on the April 2026 APRA Letter to Industry on Artificial Intelligence.
+This lens provides a structured assessment framework for AI governance in APRA-regulated Australian financial institutions. Assessment questions are derived from the **[April 2026 APRA Guidance on AI](https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai)**, presented as an unofficial Well-Architected style lens for community use.
 
 **Target Cost:** <$50/month for remediation components  
 **vs Enterprise Solutions:** $5,000+/month
@@ -55,11 +55,11 @@ python generate-assessment-report.py --output apra-ai-assessment.html
 
 | Component | Purpose | Monthly Cost |
 |-----------|---------|--------------|
-| Governance templates | Documentation, approval workflows | $0 |
-| Risk scanning | Automated model validation | ~$10-20 |
-| Audit logging | Inference logging, 7-year retention | ~$5 |
-| Resilience controls | Failover, monitoring | ~$5-10 |
-| **TOTAL** | | **~$20-35** |
+| Governance templates | Documentation, approval workflows, shadow AI controls | $0 |
+| Risk scanning | Model validation, AI code security, bias testing | ~$10-25 |
+| Audit logging | Inference logging, 7-year retention, explainability | ~$5 |
+| Resilience controls | Failover, monitoring, exit testing | ~$5-10 |
+| **TOTAL** | | **~$15-40** |
 
 ## Repository Structure
 
@@ -144,4 +144,4 @@ MIT License - For APRA-regulated Australian financial institutions and global FS
 
 *Built with ❤️ for Australian financial services compliance teams*
 
-*"Governance doesn't have to cost the earth — but it does require intent."*
+*"Governance doesn't have to cost the earth — but it does require intent."*to cost the earth — but it does require intent."*
