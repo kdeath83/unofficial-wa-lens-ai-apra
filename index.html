@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -23,6 +23,8 @@
                     Complete the 26-question assessment and receive prioritized 1-click deployment remediation into your AWS environment.
                 </p>
                 
+                <div class="divider"></div>
+                
                 <button class="btn-primary" onclick="startAssessment()">
                     Begin Assessment
                 </button>
@@ -33,28 +35,57 @@
             <div class="pillars-preview">
                 <div class="pillar-card">
                     <span class="pillar-number">01</span>
-                    <h3>Governance</h3>
-                    <p>Board literacy, strategy documentation, and shadow AI controls</p>
+                    <div>
+                        <h3>Define the Governance Structure</h3>
+                        <p>Board literacy, strategy documentation, and accountability</p>
+                    </div>
                 </div>
                 <div class="pillar-card">
                     <span class="pillar-number">02</span>
-                    <h3>Risk Management</h3>
-                    <p>Model inventory, validation, monitoring, and security</p>
+                    <div>
+                        <h3>Establish Risk Appetite</h3>
+                        <p>Quantified limits, prohibited use cases, and approval workflows</p>
+                    </div>
                 </div>
                 <div class="pillar-card">
                     <span class="pillar-number">03</span>
-                    <h3>Audit & Compliance</h3>
-                    <p>Logging, CPS 234 alignment, and explainability</p>
+                    <div>
+                        <h3>Maintain Model Inventory</h3>
+                        <p>Central registry, metadata, and risk ratings for all AI assets</p>
+                    </div>
                 </div>
                 <div class="pillar-card">
                     <span class="pillar-number">04</span>
-                    <h3>Operational Resilience</h3>
-                    <p>Availability, fallback procedures, and exit testing</p>
+                    <div>
+                        <h3>Validate Before Deployment</h3>
+                        <p>Red team assessment, bias testing, and security validation</p>
+                    </div>
+                </div>
+                <div class="pillar-card">
+                    <span class="pillar-number">05</span>
+                    <div>
+                        <h3>Instrument the Runtime</h3>
+                        <p>Drift detection, performance dashboards, and automated alerts</p>
+                    </div>
+                </div>
+                <div class="pillar-card">
+                    <span class="pillar-number">06</span>
+                    <div>
+                        <h3>Log for Audit & Explain</h3>
+                        <p>Immutable inference logs, 7-year retention, and model cards</p>
+                    </div>
+                </div>
+                <div class="pillar-card">
+                    <span class="pillar-number">07</span>
+                    <div>
+                        <h3>Plan for Resilience</h3>
+                        <p>RTO definitions, fallback procedures, and exit strategies</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="disclaimer-elegant">
-                <p>This is a community-developed assessment tool. Not an official AWS product. </p>
+            <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-light);">
+                <p class="italic" style="font-size: 13px; color: var(--text-muted); font-style: italic; text-align: left;">This is a community-developed assessment tool. Not an official AWS product.</p>
             </div>
         </section>
 
@@ -108,37 +139,14 @@
 
     <script src="questions-data.js"></script>
     <script src="survey.js"></script>
-</body>
-</html>s-section">
-                <h2>Prioritized Remediation</h2>
-                <div class="rec-list" id="rec-list">
-                    <!-- Recommendations injected by JS -->
-                </div>
-            </div>
-
-            <div class="cost-section">
-                <h3>Estimated Investment</h3>
-                <div class="cost-display">
-                    <span class="cost-amount" id="cost-amount">$0</span>
-                    <span class="cost-period">per month</span>
-                </div>
-                <p class="cost-note">Compared to $5,000+/month enterprise governance platforms</p>
-            </div>
-
-            <div class="actions">
-                <button class="btn-primary" onclick="downloadReport()">Download Report</button>
-                <button class="btn-secondary" onclick="restartAssessment()">Start Over</button>
-            </div>
-
-            <div class="export-section">
-                <h4>One-Click Deployment</h4>
-                <p>After reviewing your results, deploy recommended AWS infrastructure:</p>
-                <code class="code-block">./remediation/deploy-fixes.sh --all</code>
-            </div>
-        </section>
-    </div>
-
-    <script src="questions-data.js"></script>
-    <script src="survey.js"></script>
+    <script>
+        function startAssessment() {
+            document.getElementById('landing').style.display = 'none';
+            document.getElementById('assessment').style.display = 'block';
+            if (typeof renderQuestion === 'function') {
+                renderQuestion();
+            }
+        }
+    </script>
 </body>
 </html>
