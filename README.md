@@ -17,7 +17,7 @@ In the AWS Well-Architected Framework, a "lens" is a specialized set of question
 
 ## The 4 Pillars
 
-| Pillar | Focus Area | APRA Requirement |
+| Pillar | Focus Area | APRA Expectation |
 |--------|-----------|------------------|
 | **Governance** | Board literacy, strategy, risk appetite | Board oversight, strategic direction |
 | **Risk Management** | Model validation, monitoring, controls | Effective risk management |
