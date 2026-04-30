@@ -1,5 +1,4 @@
-# 🏛️ Unofficial WA Lens for AI Governance for APRA Regulated Entities
-+ 1 Click Remediation Deployment
+# 🏛️ Unofficial WA Lens for AI Governance for APRA Regulated Entities + 1 Click AWS Deployment Remediation
 
 > ⚠️ **UNOFFICIAL / FOR PROTOTYPING USE ONLY**
 > 
