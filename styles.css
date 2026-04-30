@@ -61,8 +61,8 @@ body {
 
 /* Header & Typography */
 .site-header {
-  text-align: center;
-  margin-bottom: var(--section-spacing);
+  text-align: left;
+  margin-bottom: 48px;
 }
 
 .eyebrow {
@@ -628,6 +628,11 @@ button:disabled {
   border: 1px solid var(--border-light);
 }
 
+/* Hide GitHub Pages footer */
+.footer, .site-footer, [class*="footer"], [id*="footer"] {
+  display: none !important;
+}
+
 /* Responsive */
 @media (max-width: 640px) {
   .container {
@@ -668,6 +673,11 @@ button:disabled {
   .pillar-bar-container {
     width: 100%;
   }
+} width: 100%;
+  }
+}} width: 100%;
+  }
+}}
 } width: 100%;
   }
 }} width: 100%;
