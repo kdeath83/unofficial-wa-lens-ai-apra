@@ -187,15 +187,16 @@ button:disabled {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: var(--accent-gold);
+  min-width: 32px;
+  height: 22px;
+  background-color: var(--accent-olive);
   color: #FFFFFF;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
-  border-radius: 50%;
-  margin-bottom: 16px;
+  border-radius: 4px;
+  padding: 0 8px;
+  letter-spacing: 0.02em;
 }
 
 .pillar-card h3 {
