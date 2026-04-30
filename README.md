@@ -64,25 +64,8 @@ The assessment generates a tailored plan showing:
 
 ### 3. One-Click Deploy to AWS
 
-**Deploy everything recommended:**
-```bash
-./remediation/deploy-fixes.sh --all
-```
-
-**Or deploy specific components:**
-```bash
-# Governance controls
-./remediation/deploy-fixes.sh --component education --component strategy
-
-# Risk management
-./remediation/deploy-fixes.sh --component monitoring --component security
-
-# Audit & compliance
-./remediation/deploy-fixes.sh --component logging --component lifecycle
-
-# Operational resilience
-./remediation/deploy-fixes.sh --component circuit --component fallback
-```
+**Deploy from the web UI:**
+After completing the assessment, click **"Deploy"** buttons next to each recommended remediation. Infrastructure deploys automatically to your AWS environment.
 
 **What gets deployed:**
 - CloudFormation/Terraform templates
@@ -91,6 +74,12 @@ The assessment generates a tailored plan showing:
 - IAM policies and guardrails
 - SNS topics for alerts
 - All AWS-native, no external dependencies
+
+**Advanced: CLI deployment**
+For automation or CI/CD pipelines, use the deployment script:
+```bash
+./remediation/deploy-fixes.sh --all
+```
 
 ### 4. Generate Compliance Report
 
