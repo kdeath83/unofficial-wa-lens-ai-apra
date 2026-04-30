@@ -275,7 +275,7 @@ const SURVEY_DATA = {
                 {
                     id: 'audit-06',
                     text: 'Can you explain AI model decisions to regulators and customers?',
-                    rationale: 'APRA requires consideration of model purpose, limitations, explainability',
+                    rationale: 'APRA expects consideration of model purpose, limitations, explainability',
                     options: [
                         { value: 0, label: 'No explainability practices' },
                         { value: 25, label: 'Technical documentation only' },
