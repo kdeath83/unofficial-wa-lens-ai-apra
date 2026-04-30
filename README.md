@@ -55,7 +55,7 @@ python generate-assessment-report.py --output apra-ai-assessment.html
 |-----------|---------|--------------|
 | Governance templates | Documentation, approval workflows, shadow AI controls | $0 |
 | Risk scanning | Model validation, AI code security, bias testing | ~$10-25 |
-| Audit logging | Inference logging, 7-year retention, explainability | ~$5 |
+| Audit logging | Inference logging, retention, explainability | ~$5 |
 | Resilience controls | Failover, monitoring, exit testing | ~$5-10 |
 | **TOTAL** | | **~$15-40** |
 
@@ -102,7 +102,7 @@ unofficial-wa-lens-ai-apra/
 This lens is developed by the community for educational purposes. It is:
 - NOT an official AWS service
 - NOT endorsed by AWS or APRA
-- NOT guaranteed to achieve compliance
+- NOT guaranteed to achieve anything
 - Provided "as is" without warranties
 
 ### For Prototyping Use
@@ -135,11 +135,11 @@ MIT License - For APRA-regulated Australian financial institutions and global FS
 ## Support
 
 - **Issues:** GitHub Issues tab
-- **APRA Reference:** https://www.apra.gov.au/ai-letter
+- **APRA Reference:** [https://www.apra.gov.au/ai-letter](https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai)
 - **Well-Architected Framework:** https://aws.amazon.com/architecture/well-architected/
 
 ---
 
-*Built with ❤️ for Australian financial services compliance teams*
+*Built with ❤️ for APRA Regulated Entities and their material service providers*
 
-*"Governance doesn't have to cost the earth — but it does require intent."*to cost the earth — but it does require intent."*
+*"Governance doesn't have to be complicated — but it does require intent."*
