@@ -278,15 +278,15 @@ function showResults() {
     });
   }, 100);
   
-  // Recommendations
+  // Recommendations with Deploy buttons
   if (recs.length > 0) {
-    const recsHtml = recs.map(r => `
+    const recsHtml = recs.map((r, idx) => `
       <div class="rec-item">
         <span class="rec-priority ${r.priority.toLowerCase()}">${r.priority}</span>
         <div class="rec-content">
           <div class="rec-pillar">${r.icon} ${r.pillar}</div>
           <div class="rec-title">${r.question}</div>
-          <code class="rec-command">${r.remediation}</code>
+          <button class="btn-deploy" onclick="deployRemediation('${r.remediation}', ${idx})">Deploy</button>
         </div>
       </div>
     `).join('');
@@ -303,9 +303,6 @@ function showResults() {
       </div>
     `;
   }
-  
-  // Cost estimate
-  document.getElementById('cost-amount').textContent = `$${cost}`;
   
   // Store for download
   window.assessmentResults = {
@@ -341,7 +338,10 @@ function animateNumber(element, start, end, duration) {
 
 function downloadReport() {
   const output = window.assessmentResults;
-  if (!output) return;
+  if (!output) {
+    alert('No assessment results to download. Please complete the assessment first.');
+    return;
+  }
   
   const html = generateHTMLReport(output);
   
@@ -365,12 +365,12 @@ function generateHTMLReport(data) {
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #F5F3EE;
+      --bg-primary: #F5F2EB;
       --bg-card: #FFFFFF;
-      --accent-gold: #C4A35A;
-      --text-primary: #1A1A1A;
+      --accent-gold: #C9A962;
+      --text-primary: #2D2A26;
       --text-secondary: #4A4A4A;
-      --text-muted: #9A9A9A;
+      --text-muted: #9A8469;
       --border-light: #E8E5E0;
     }
     body {
@@ -383,7 +383,7 @@ function generateHTMLReport(data) {
       line-height: 1.6;
     }
     .header {
-      text-align: center;
+      text-align: left;
       margin-bottom: 48px;
     }
     .eyebrow {
@@ -403,7 +403,7 @@ function generateHTMLReport(data) {
       border: 1px solid var(--border-light);
       border-radius: 12px;
       padding: 40px;
-      text-align: center;
+      text-align: left;
       margin-bottom: 32px;
     }
     .score-value {
@@ -439,7 +439,7 @@ function generateHTMLReport(data) {
       border-top: 1px solid var(--border-light);
       font-size: 13px;
       color: var(--text-muted);
-      text-align: center;
+      text-align: left;
     }
   </style>
 </head>
@@ -465,8 +465,7 @@ function generateHTMLReport(data) {
   ${data.recommendations.map(r => `
     <div class="rec-item">
       <strong style="color: var(--accent-gold);">${r.pillar}</strong><br>
-      ${r.question}<br>
-      <code>${r.remediation}</code>
+      ${r.question}
     </div>
   `).join('') || '<p style="color: var(--text-muted);">No critical recommendations. Your AI governance posture is strong.</p>'}
   
