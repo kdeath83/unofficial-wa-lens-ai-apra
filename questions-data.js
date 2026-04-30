@@ -12,7 +12,7 @@ const SURVEY_DATA = {
                 {
                     id: 'gov-01',
                     text: 'Does your Board have sufficient AI literacy to provide effective oversight?',
-                    rationale: 'APRA requires boards to understand AI capabilities, limitations, and risks',
+                    rationale: 'APRA expects boards to understand AI capabilities, limitations, and risks',
                     options: [
                         { value: 0, label: 'No Board AI education or awareness' },
                         { value: 25, label: 'Ad-hoc briefings, no formal program' },
@@ -210,7 +210,7 @@ const SURVEY_DATA = {
                 {
                     id: 'audit-01',
                     text: 'Do you log AI inference inputs and outputs for audit?',
-                    rationale: 'APRA requires ability to explain and reconstruct AI decisions',
+                    rationale: 'APRA expects ability to explain and reconstruct AI decisions',
                     options: [
                         { value: 0, label: 'No inference logging' },
                         { value: 25, label: 'Application logs only, not structured' },
