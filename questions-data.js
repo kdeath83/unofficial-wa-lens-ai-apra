@@ -1,6 +1,7 @@
 // Unofficial WA Lens AI APRA Survey Questions Data
-// ⚠️ UNOFFICIAL / FOR PROTOTYPING USE ONLY
-// 26 questions covering 4 pillars based on APRA April 2026 AI Guidance
+// 26 questions across 4 pillars based on APRA April 2026 AI Guidance
+// Cache-bust: 2026-04-30-1640
+
 const SURVEY_DATA = {
     pillars: [
         {
@@ -73,6 +74,19 @@ const SURVEY_DATA = {
                         { value: 100, label: 'Board or sub-committee approval for strategic AI' }
                     ],
                     remediation: 'Deploy approval workflow: ./deploy-fixes.sh --component workflow'
+                },
+                {
+                    id: 'gov-06',
+                    text: 'Do you have controls for staff AI experimentation outside approved frameworks?',
+                    rationale: 'APRA observed staff using enterprise AI tools outside approved frameworks',
+                    options: [
+                        { value: 0, label: 'No controls, staff use any AI freely' },
+                        { value: 25, label: 'Policy guidance only, no technical enforcement' },
+                        { value: 50, label: 'DLP rules detect some unauthorized AI' },
+                        { value: 75, label: 'Technical controls block unauthorized AI tools' },
+                        { value: 100, label: 'Approved sandbox with monitoring and controls' }
+                    ],
+                    remediation: 'Deploy shadow AI controls: ./deploy-fixes.sh --component shadowcontrols'
                 }
             ]
         },
@@ -146,6 +160,45 @@ const SURVEY_DATA = {
                         { value: 100, label: 'Tiered oversight with escalation triggers' }
                     ],
                     remediation: 'Deploy oversight: ./deploy-fixes.sh --component oversight'
+                },
+                {
+                    id: 'risk-06',
+                    text: 'Do you security-test AI-generated code before deployment?',
+                    rationale: 'APRA warns AI-assisted development strains change controls',
+                    options: [
+                        { value: 0, label: 'No special testing for AI-generated code' },
+                        { value: 25, label: 'Standard testing applied to all code' },
+                        { value: 50, label: 'AI code flagged in version control' },
+                        { value: 75, label: 'Automated SAST for AI contributions' },
+                        { value: 100, label: 'Mandatory peer review plus security scanning' }
+                    ],
+                    remediation: 'Deploy AI code security: ./deploy-fixes.sh --component aicode'
+                },
+                {
+                    id: 'risk-07',
+                    text: 'Do you manage AI agent identities and access like human users?',
+                    rationale: 'APRA notes identity management has not adjusted to non-human actors',
+                    options: [
+                        { value: 0, label: 'AI agents share human credentials' },
+                        { value: 25, label: 'AI agents have service accounts' },
+                        { value: 50, label: 'Limited scope service accounts' },
+                        { value: 75, label: 'Regular access reviews for AI agents' },
+                        { value: 100, label: 'Full IAM lifecycle for autonomous agents' }
+                    ],
+                    remediation: 'Deploy agent IAM: ./deploy-fixes.sh --component agentiam'
+                },
+                {
+                    id: 'risk-08',
+                    text: 'Do you test AI models for bias and fairness before deployment?',
+                    rationale: 'APRA flags ethical considerations including inherent bias',
+                    options: [
+                        { value: 0, label: 'No bias testing conducted' },
+                        { value: 25, label: 'Ad-hoc manual review for bias' },
+                        { value: 50, label: 'Bias testing for high-risk models only' },
+                        { value: 75, label: 'Automated testing across protected attributes' },
+                        { value: 100, label: 'Comprehensive fairness framework with metrics' }
+                    ],
+                    remediation: 'Deploy bias testing: ./deploy-fixes.sh --component bias'
                 }
             ]
         },
@@ -170,14 +223,14 @@ const SURVEY_DATA = {
                 },
                 {
                     id: 'audit-02',
-                    text: 'Is AI decision data retained to support incident investigation and regulatory inquiry?',
-                    rationale: 'CPS 234 requires long-term retention',
+                    text: 'Is AI decision data retained to support incident investigation?',
+                    rationale: 'APRA AI guidance requires ability to reconstruct and explain AI decisions',
                     options: [
-                        { value: 0, label: 'Standard retention (30-90 days)' },
-                        { value: 25, label: 'Extended retention but < 1 year' },
-                        { value: 50, label: '1-3 year retention for critical logs' },
-                        { value: 75, label: '7 year retention but manual process' },
-                        { value: 100, label: 'Automated 7-year lifecycle with Glacier' }
+                        { value: 0, label: 'Standard retention only' },
+                        { value: 25, label: 'Extended retention for some logs' },
+                        { value: 50, label: 'Structured retention for AI decisions' },
+                        { value: 75, label: 'Long-term retention with searchability' },
+                        { value: 100, label: 'Automated lifecycle with regulatory inquiry support' }
                     ],
                     remediation: 'Deploy lifecycle: ./deploy-fixes.sh --component lifecycle'
                 },
@@ -243,8 +296,8 @@ const SURVEY_DATA = {
             questions: [
                 {
                     id: 'res-01',
-                    text: 'Do you have defined RTOs for critical AI systems?',
-                    rationale: 'CPS 230 requires clear recovery targets',
+                    text: 'Do you have defined recovery time objectives (RTO) for critical AI systems?',
+                    rationale: 'CPS 230 requires operational resilience with clear recovery targets',
                     options: [
                         { value: 0, label: 'No recovery targets defined' },
                         { value: 25, label: 'Generic IT RTOs applied to AI' },
@@ -256,8 +309,8 @@ const SURVEY_DATA = {
                 },
                 {
                     id: 'res-02',
-                    text: 'Can you operate critical functions without AI if systems fail?',
-                    rationale: 'Over-reliance on AI creates concentration risk',
+                    text: 'Can you operate critical business functions without AI if systems fail?',
+                    rationale: 'Over-reliance on AI creates unacceptable concentration risk',
                     options: [
                         { value: 0, label: 'No manual fallback possible' },
                         { value: 25, label: 'Manual process exists but untested' },
@@ -269,7 +322,7 @@ const SURVEY_DATA = {
                 },
                 {
                     id: 'res-03',
-                    text: 'Do you have circuit breakers for malfunctioning AI?',
+                    text: 'Do you have circuit breakers or kill switches for malfunctioning AI?',
                     rationale: 'Rapid response to model drift limits damage',
                     options: [
                         { value: 0, label: 'No kill switch capability' },
@@ -282,8 +335,8 @@ const SURVEY_DATA = {
                 },
                 {
                     id: 'res-04',
-                    text: 'Are AI systems in BCP/DR plans?',
-                    rationale: 'AI often omitted from traditional planning',
+                    text: 'Are AI systems included in business continuity and disaster recovery plans?',
+                    rationale: 'AI often omitted from traditional BCP/DR planning',
                     options: [
                         { value: 0, label: 'AI not in BCP/DR' },
                         { value: 25, label: 'Generic BCP mentions AI' },
@@ -305,6 +358,19 @@ const SURVEY_DATA = {
                         { value: 100, label: 'Multi-vendor strategy with exit procedures' }
                     ],
                     remediation: 'Deploy vendor monitoring: ./deploy-fixes.sh --component vendor'
+                },
+                {
+                    id: 'res-06',
+                    text: 'Have you tested exit and substitution strategies for critical AI providers?',
+                    rationale: 'APRA observed few entities had demonstrated robust contingency planning',
+                    options: [
+                        { value: 0, label: 'No exit planning' },
+                        { value: 25, label: 'Exit strategy documented but not tested' },
+                        { value: 50, label: 'Tabletop exercise conducted annually' },
+                        { value: 75, label: 'Tested data portability annually' },
+                        { value: 100, label: 'Full exit simulation with substitution validated' }
+                    ],
+                    remediation: 'Deploy exit testing: ./deploy-fixes.sh --component exittest'
                 }
             ]
         }
@@ -323,7 +389,3 @@ SURVEY_DATA.pillars.forEach(pillar => {
         });
     });
 });
- 
- 
-/ /   C a c h e   b u s t :   0 4 / 3 0 / 2 0 2 6   1 6 : 3 4 : 0 2  
- 
