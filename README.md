@@ -10,8 +10,6 @@
 
 This lens provides a structured assessment framework for AI governance in APRA-regulated Australian financial institutions. Assessment questions are derived from the **[April 2026 APRA Guidance on AI](https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai)**, presented as an unofficial Well-Architected style lens for community use.
 
-**Target Cost:** <$50/month for remediation components  
-**vs Enterprise Solutions:** $5,000+/month
 
 ## What is a Well-Architected Lens?
 
